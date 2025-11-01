@@ -1,0 +1,10 @@
+from django.contrib import admin
+from django.urls import path
+
+from . import views
+
+#localhost:8000/DJapp
+urlpatterns = [  
+    path('', views.all_dj, name = 'all_home'),
+
+]
