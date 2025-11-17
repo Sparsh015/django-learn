@@ -7,13 +7,16 @@ DJapp title
 {% block content %} 
 <h1>DJapp | Home Page</h1>
 
-{% for anim in animes %}
-    <div class="card">
-        <img src="{{anim.image.url}}" alt="">
-        <h3>{{anim.name}}</h3>
-    </div>
+<div class="grid grid-cols-3 gap-4 m-5">
+    {% for anim in animes %}
 
-{% endfor %}
+        <div class="bg-blue-900 p-3">
+            <img class ="rounded" src="{{anim.image.url}}" alt="">
+            <h3>{{anim.name}}</h3>
+        </div>
+
+    {% endfor %}
+</div>
 
 {% endblock %}
 
