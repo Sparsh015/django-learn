@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.html": "django-html"
+  },
+  "tailwindCSS.includeLanguages": {
+    "django-html": "html"
+  }
+}
