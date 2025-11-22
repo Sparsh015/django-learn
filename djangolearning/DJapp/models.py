@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import user
 
 # Create your models here.
 
@@ -23,3 +24,9 @@ class Varity(models.Model):
 
     def __str__(self):
         return self.name
+    
+#one to many relationship
+
+class AnimeReview(models.Model):
+    anime = models.ForeignKey(Varity, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(user, on_delete=models.CASCADE)
