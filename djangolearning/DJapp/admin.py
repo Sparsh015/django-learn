@@ -1,7 +1,12 @@
 from django.contrib import admin
 from .models import Varity, AnimeReview, Store, AnimeCertificate
 
-# Register your models here.
+# Try unregistering to avoid AlreadyRegistered error
+try:
+    admin.site.unregister(Varity)
+except admin.sites.NotRegistered:
+    pass
+
 class AnimeReviewInline(admin.TabularInline):
     model = AnimeReview
     extra = 2
@@ -17,5 +22,6 @@ class StoreAdmin(admin.ModelAdmin):
 class AnimeCertificateAdmin(admin.ModelAdmin):
     list_display = ('anime', 'certificate_number')
 
-
-admin.site.register(Varity)
+admin.site.register(Varity, VarityAdmin)
+admin.site.register(Store, StoreAdmin)
+admin.site.register(AnimeCertificate, AnimeCertificateAdmin)
